@@ -1,0 +1,155 @@
+1.Geleeneksel dosyalama sistemlerinin çalışma şeklini açıklayarak bildiğiniz bir programlama dili yardımıyla txt dosyadan veri okumak ve veri yazmak için bir uygulama geliştiriniz.
+Cevap: Kütüphane Sistemi veritabanı tablosu ve açıklamaları
+
+
+Kitaplar Tablosu:                                                                   
+KitapID  KitapAdı      Yazar           Durum                                   
+213      Küçük Prens   Antoine         Rafta                                   
+651      1984          George Orwell   Ödünçte                             
+
+
+
+Üyeler Tablosu:
+ÜyeID     Ad     Telofon  
+123      Aslı    545-1708 
+847      Onur    547-1908
+
+
+
+Ödünç Tablosu
+İşlemID     ÜyeID     KitapID     Tarih
+1342        123       651         18/08/2024
+
+
+
+Tablolar Arası İlişkiler:
+Üye ↔ Ödünç
+İlişki Türü: 1:N (Bir üye birden fazla kitap ödünç alabilir).
+
+Kitap ↔ Ödünç
+İlişki Türü: 1:1 (Bir kitap aynı anda sadece bir üye tarafından alınabilir).
+
+
+
+2. Geleneksel dosyalama sistemleriyle veritabanı yönetim sistemlerinin benzerlik ve farklılıklarını yazınız.
+Cevap: 
+*İkisi de veriyi fiziksel olarak saklar.   *Her ikisi de yedeklenir
+*Veri ekleme, okuma, güncelleme, silme yapılabilir.
+Geleneksel dosyalama sistemleri, basit ve küçük ölçekli işler için uygundur. VTYS ise büyük veri, karmaşık ilişkiler ve çoklu kullanıcı gerektiren işler için. VTYS, veriyi yapılandırılmış, güvenli ve dinamik bir şekilde yöneterek modern uygulamaların temelini oluşturur.
+
+
+
+3. VTYS’nin geleneksel sisteme göre üstün özelliklerini açıklayınız.
+Cevap: Veritabanı yönetim sistemleri, geleneksel dosyalama sistemlerine kıyasla veri tekrarını önleme, SQL ile hızlı sorgulama, çoklu kullanıcı erişiminde tutarlılık, gelişmiş güvenlik  ve büyük veri için ölçeklenebilirlik sunar. Manuel işlem gerektiren dosya sistemlerinin aksine, merkezi yönetim ve otomatik yedekleme ile verimliliği artırır.
+
+
+
+4.Veritabanının görevini açıklayarak kullandığı alanlara örnek veriniz.
+Cevap: Veritabanı, birçok yerde dijital hafıza görevi görür. Örneğin, bir marketteki ürünlerin stok bilgisi, hastanelerdeki hasta dosyaları veya Instagram'da kaydettiğiniz fotoğrafların saklandığı yer bir veritabanıdır. Karmaşık bilgileri düzenleyip, aradığınızda hızlıca bulmanızı sağlar.
+ Finansal Hizmetler
+•	Banka ve Sigorta: Hesap hareketleri, kredi başvuruları, para transferleri, poliçe yönetimi.
+•	Borsa: Anlık işlem verileri, portföy takibi.
+ Sağlık ve İlaç Sektörü
+•	Hasta Kayıtları: Teşhis bilgileri, tedavi süreçleri, ilaç reçeteleri.
+•	Tıbbi Araştırmalar: Klinik deney verileri, genetik bilgi depolama.
+ Perakende ve E-ticaret
+•	Stok Yönetimi: Ürün envanteri, tedarik zinciri optimizasyonu.
+•	Müşteri İlişkileri: Satın alma geçmişi, kişiselleştirilmiş kampanyalar.
+
+
+
+5.  Tablo, satır ve sütun kavramlarını ve farklılıkları açıklayınız.
+Cevap: 
+•	Tablo: Veritabanında belirli bir konuya ait verilerin yapılandırılmış şekilde depolandığı nesne. Örneğin, Öğrenciler tablosu.
+•	Sütun: Tablodaki veri kategorilerini temsil eder. Örneğin, Ad, Soyad, Doğum Tarihi.
+•	Satır: Tek bir varlığa ait tüm bilgilerin sütunlara göre doldurulduğu yatay veri grubu. Örneğin, "Ahmet Yılmaz" adlı öğrencinin tüm bilgileri.
+Farklılıklar:
+•	Sütun:  Dikey eksende veri türlerini belirler (örn: metin, sayı).
+•	Satır :Yatay eksende tek bir kaydı ifade eder.
+•	Tablo :Tüm veri kümesini kapsayan yapı.
+
+
+
+6. Birincil anahtar ve yabancıl anahtar kavramlarını ve farklılıklarını açıklayınız.
+Cevap: 
+Birincil Anahtar:  Kimlik numarası gibidir. Her vatandaşın bir numarası vardır ve bu numara tekildir.
+•	Yabancıl Anahtar: Pasaportunuzdaki vize damgası gibidir. Başka bir ülkenin (tablonun) kaydını işaret eder.
+Fark:
+•	Kimlik numarası sadece sizi tanımlar (birincil anahtar), vize damgası ise başka bir ülkeyle ilişkinizi gösterir (yabancıl anahtar).
+
+
+
+7.Veritabanı kullanıcı türleri nelerdir?
+Cevap:
+Veritabanı Yöneticisi(DBA-Database Administrator)
+Uygulama Programcısı
+Sorgu Dili Kullanıcıları
+Son Kullanıcılar
+
+
+
+8.Örnek bir veritabanı için kullanıcılar belirleyerek yetkilendirmelerini şematik olarak gösteriniz.
+Cevap: 
+Yönetici    →  Tüm Verilere erişir
+Öğretmen   → Sadece Dersler & Notlara erişebilir
+Öğrenci    →  Sadece Kendi Notlarına erişebilir
+Veli       →  Sadece Çocuğunun Verilerine erişebilir  
+Stajyer    → Sınırlı Öğrenci Bilgisine erişebilir 
+
+
+
+9. Veritabanı ile VTYS’nin farklarını açıklayınız.
+Cevap:
+Veritabanı: Bir kitaplıktaki kitaplar (verilerin kendisi).
+VTYS: Kitaplığı yöneten kütüphaneci (kitapları düzenler, ödünç almayı kontrol eder)
+Yani VTYS olmadan veriler düzensiz ve güvensiz kalır.
+
+
+
+10. İlişkisel veri modelini açıklayınız.
+Cevap:
+İlişkisel veri modeli, verileri tablolar şeklinde düzenleyen ve bu tablolar arasında ilişkiler kurarak veri bütünlüğünü sağlayan bir veri yönetim sistemidir. 3 çeşidi vardır;
+1:1 (Birebir) Bir kişi ↔ Bir pasaport
+1:N (Bire Çok) Bir anne ↔ Birden fazla çocuk
+N:N (Çoka Çok) Müşteriler ↔ Ürünler
+
+
+
+11. Bir öğrenci bilgi sistemi için kullanılacak veritabanı, tablolar ve tablolar arasındaki ilişkileri belirleyiniz.
+                                     
+Öğrenciler tablosu:                            
+ÖğrenciID    Ad     Soyad    Sınıf
+8547        Efe     Koç      12B
+1380        İpek    Arı      11A
+
+
+
+Dersler tablosu:
+DersID    DersAdı      Kredi
+465       Türkçe       4
+598       Tarih        3
+
+
+
+Notlar tablosu
+NotID   ÖğrenciID    DersID   Not
+566     8547         465      100
+118     8547         598      95
+
+
+
+Öğretmenler tablosu
+ÖğretmenID   Ad      Branş
+666          Deniz   Türkçe
+777          İpek    Tarih
+
+
+Öğrenci ↔ Notlar
+İlişki Türü: 1:N (Bir öğrenci birden fazla not alabilir).
+
+Ders ↔ Notlar
+İlişki Türü: 1:N (Bir dersin birden fazla notu olabilir).
+
+Öğretmen ↔ Ders
+İlişki Türü: 1:N (Bir öğretmen birden fazla ders verebilir).
+
