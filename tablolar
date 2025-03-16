@@ -1,0 +1,47 @@
+CREATE TABLE Kitaplar (
+    KitapNo int PRIMARY KEY,
+    KitapAdi varchar(255) NOT NULL,
+    ISBN varchar(13) NOT NULL,
+    YayinTarihi int,
+    Miktar int,
+    YazarNo int,
+    KategoriNo int,
+    FOREIGN KEY (YazarNo) REFERENCES Yazarlar(YazarNo),
+    FOREIGN KEY (KategoriNo) REFERENCES Kategoriler(KategoriNo)
+);
+
+
+CREATE TABLE Yazarlar (
+    YazarNo int PRIMARY KEY,
+    YazarAdi varchar(50) NOT NULL,
+    YazarSoyadi varchar(50) NOT NULL
+);
+
+
+CREATE TABLE Kategoriler (
+    KategoriNo int PRIMARY KEY,
+    KategoriAdi varchar(100) NOT NULL
+);
+
+
+
+CREATE TABLE Bulunur (
+    KutuphaneNo int,
+    KitapNo int,
+    PRIMARY KEY (KutuphaneNo, KitapNo),
+    FOREIGN KEY (KutuphaneNo) REFERENCES Kutuphane(KutuphaneNo),
+    FOREIGN KEY (KitapNo) REFERENCES Kitaplar(KitapNo)
+);
+
+
+CREATE TABLE KitapKategorileri (
+    KitapNo int,
+    KategoriNo int,
+    PRIMARY KEY (KitapNo, KategoriNo),
+    FOREIGN KEY (KitapNo) REFERENCES Kitaplar(KitapNo),
+    FOREIGN KEY (KategoriNo) REFERENCES Kategoriler(KategoriNo)
+);
+
+
+
+
