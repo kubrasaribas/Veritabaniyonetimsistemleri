@@ -1,0 +1,75 @@
+3.	Her bir müşteriden alınan araçların sayısını listelemek için gerekli SQL ifadesini yazınız.
+
+SELECT M.madi, M.msoyadi, COUNT(AL.AracNo) AS alinan_arac_sayisi 
+FROM dbo.musteri M
+LEFT JOIN dbo.alislar AL ON M.mno = AL.mno
+GROUP BY M.mno, M.madi, M.msoyadi;
+
+
+
+4.	Satılan araçların marka ve modelini bulmak için gerekli SQL ifadesini yazınız.
+
+SELECT DISTINCT A.marka, A.model
+FROM dbo.araclar A
+JOIN dbo.satislar S ON A.Aracno = S.AracNo;
+
+
+
+5.	Toplam satış ve toplam alım tutarlarını ve bunların farkını bulmak için gerekli SQL ifadesini yazınız.
+
+    SELECT 
+    (SELECT SUM(Fiyat) FROM dbo.satislar) AS toplam_satis,
+    (SELECT SUM(Fiyat) FROM dbo.alislar) AS toplam_alin,
+    (SELECT SUM(Fiyat) FROM dbo.satislar) - (SELECT SUM(Fiyat) FROM dbo.alislar) AS fark
+
+
+
+6.	Hiç satışı yapılmamış araçları listelemek için gerekli SQL ifadesini yazınız.
+
+SELECT A.Aracno, A.marka, A.model
+FROM araclar A
+LEFT JOIN satislar S ON A.Aracno = S.AracNo
+WHERE S.AracNo IS NULL;
+
+
+
+7.	Her aracın ortalama satış tutarını bulmak için gerekli SQL ifadesini yazınız.
+
+SELECT A.Aracno, A.marka, A.model, AVG(S.Fiyat) AS OrtalamaSatisFiyati
+FROM araclar A
+LEFT JOIN satislar S ON A.Aracno = S.AracNo
+GROUP BY A.Aracno, A.marka, A.model;
+
+
+
+8.	Alımı ve satışı yapılan tüm araçların marka, model ve alım-satış sayısını listelemek için gerekli SQL ifadesiniz yazınız.
+
+SELECT 
+    A.marka, 
+    A.model,
+    COUNT(DISTINCT AL.alisNo) AS AlimSayisi,
+    COUNT(DISTINCT S.satisNo) AS SatisSayisi
+FROM araclar A
+LEFT JOIN alislar AL ON A.Aracno = AL.AracNo
+LEFT JOIN satislar S ON A.Aracno = S.AracNo
+GROUP BY A.marka, A.model;
+
+
+
+9.	20000’den fazla tutara satılan araçları kimlerin hangi aracı aldığını bulmak için gerekli SQL ifadesini yazınız.
+
+SELECT M.Madi, M.Msoyadi, A.marka, A.model, S.Fiyat
+FROM musteri M
+INNER JOIN satislar S ON M.Mno = S.MNo
+INNER JOIN araclar A ON S.AracNo = A.Aracno
+WHERE S.Fiyat > 20000;
+
+
+
+10.	Tokatta bulunan müşterilere satışı yapılan araçları listelemek için gerekli SQL ifadesini yazınız.
+
+SELECT A.Aracno, A.marka, A.model
+FROM araclar A
+INNER JOIN satislar S ON A.Aracno = S.AracNo
+INNER JOIN musteri M ON S.MNo = M.Mno
+WHERE M.Madres LIKE '%Tokat%';
