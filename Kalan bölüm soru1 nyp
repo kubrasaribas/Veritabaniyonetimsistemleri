@@ -1,0 +1,45 @@
+using System;
+
+class Soru1
+{
+    static void Main()
+    {
+
+        Console.WriteLine("Birinci sayıyı giriniz: ");
+        int a = Convert.ToInt32(Console.ReadLine());
+
+
+        Console.WriteLine("İkinci sayıyı giriniz: ");
+        int b = Convert.ToInt32(Console.ReadLine());
+
+
+        if (b == 0)
+
+        {
+            Console.WriteLine("Hata: Bir sayı sıfıra bölünemez! ");
+        }
+        else
+        {
+
+            if (a % b == 0)
+
+            {
+                Console.WriteLine($"{a} sayısı {b} sayısına tam bölünür. ");
+
+                Console.WriteLine($"Bölüm: {a / b}");
+            }
+
+         else
+        {
+
+            Console.WriteLine($"{a} sayısı {b} sayısına tam bölünemez. ");
+
+
+            Console.WriteLine($"Kalan: {a % b}");
+
+        }
+    }
+  }
+
+}
+
