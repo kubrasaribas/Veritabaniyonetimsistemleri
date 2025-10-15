@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güzellik Dünyası - Premium Kozmetik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d81b60;
+            --secondary-color: #f8bbd9;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1189&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #ad1457;
+            border-color: #ad1457;
+        }
+        
+        .product-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-section {
+            padding: 80px 0;
+        }
+        
+        .bg-light-pink {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(216, 27, 96, 0.25);
+        }
+        
+        .page-section {
+            display: none;
+            padding: 80px 0;
+        }
+        
+        .active-page {
+            display: block;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .product-image {
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('ana-sayfa')">GÜZELLİK DÜNYASI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('ana-sayfa')">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('urunler')">Ürünler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('hakkimizda')">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('iletisim')">İletişim</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-primary me-2" onclick="showPage('giris')">Giriş Yap</a>
+                    <a href="#" class="btn btn-primary" onclick="showPage('kayit')">Üye Ol</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="ana-sayfa" class="active-page">
+  
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Ruj Koleksiyonunuzu Keşfedin</h1>
+                <p class="lead">En yeni trendler ve kalıcı renklerle dudaklarınızı vurgulayın</p>
+                <a href="#" class="btn btn-primary btn-lg mt-3" onclick="showPage('urunler')">Alışverişe Başla</a>
+            </div>
+        </div>
+
+      
+        <section class="category-section">
+            <div class="container">
+                <h2 class="text-center mb-5">Kategoriler</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card text-center">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Rujlar">
+                            <div class="card-body">
+                                <h5 class="card-title">Rujlar</h5>
+                                <p class="card-text">Mat, parlak ve sıvı formüller</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('urunler')">İncele</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card text-center">
+                            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Göz Makyajı">
+                            <div class="card-body">
+                                <h5 class="card-title">Göz Makyajı</h5>
+                                <p class="card-text">Maskara, far ve eyeliner</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('urunler')">İncele</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card text-center">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Cilt Bakımı">
+                            <div class="card-body">
+                                <h5 class="card-title">Cilt Bakımı</h5>
+                                <p class="card-text">Nemlendirici, temizleyici ve serumlar</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('urunler')">İncele</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section bg-light-pink">
+            <div class="container">
+                <h2 class="text-center mb-5">Öne Çıkan Ürünler</h2>
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+                            <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Kırmızı Ruj">
+                            <div class="card-body">
+                                <h5 class="card-title">Klasik Kırmızı</h5>
+                                <p class="card-text">Mat formül, uzun süre kalıcı</p>
+                                <p class="fw-bold text-primary">₺149,90</p>
+                                <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-1')">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+                            <img src="https://images.unsplash.com/photo-1556228578-1cf44c0b6c8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Pembe Ruj">
+                            <div class="card-body">
+                                <h5 class="card-title">Pembe Işıltı</h5>
+                                <p class="card-text">Parlak finish, nemlendirici</p>
+                                <p class="fw-bold text-primary">₺129,90</p>
+                                <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-2')">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+                            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Nude Ruj">
+                            <div class="card-body">
+                                <h5 class="card-title">Nude Ton</h5>
+                                <p class="card-text">Doğal görünüm, sıvı formül</p>
+                                <p class="fw-bold text-primary">₺159,90</p>
+                                <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-3')">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+                            <img src="https://images.unsplash.com/photo-1512496015859-f0eec44b51a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Koyu Ruj">
+                            <div class="card-body">
+                                <h5 class="card-title">Koyu Bordó</h5>
+                                <p class="card-text">Yoğun pigment, transfer dayanıklı</p>
+                                <p class="fw-bold text-primary">₺169,90</p>
+                                <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-4')">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ 
+        <section class="category-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h2>Bültenimize Abone Olun</h2>
+                        <p class="mb-4">Yeni ürünler ve özel indirimlerden haberdar olun</p>
+                        <form onsubmit="handleSubscription(event)" class="row g-3 justify-content-center">
+                            <div class="col-auto">
+                                <input type="email" class="form-control" id="email" placeholder="E-posta adresiniz" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Abone Ol</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="kayit" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2 class="text-center mb-4">Üye Ol</h2>
+                    <form onsubmit="handleRegistration(event)">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Ad Soyad</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="reg-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Şifre</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Şifre Tekrar</label>
+                            <input type="password" class="form-control" id="confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Zaten üye misiniz? <a href="#" onclick="showPage('giris')">Giriş Yapın</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="giris" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2 class="text-center mb-4">Giriş Yap</h2>
+                    <form onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label for="login-email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="login-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Şifre</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Üye değil misiniz? <a href="#" onclick="showPage('kayit')">Hemen Üye Olun</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urunler" class="page-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Tüm Ürünlerimiz</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Kırmızı Ruj">
+                        <div class="card-body">
+                            <h5 class="card-title">Klasik Kırmızı</h5>
+                            <p class="card-text">Mat formül, uzun süre kalıcı</p>
+                            <p class="fw-bold text-primary">₺149,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-1')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1556228578-1cf44c0b6c8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Pembe Ruj">
+                        <div class="card-body">
+                            <h5 class="card-title">Pembe Işıltı</h5>
+                            <p class="card-text">Parlak finish, nemlendirici</p>
+                            <p class="fw-bold text-primary">₺129,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-2')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Nude Ruj">
+                        <div class="card-body">
+                            <h5 class="card-title">Nude Ton</h5>
+                            <p class="card-text">Doğal görünüm, sıvı formül</p>
+                            <p class="fw-bold text-primary">₺159,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-3')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1512496015859-f0eec44b51a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Koyu Ruj">
+                        <div class="card-body">
+                            <h5 class="card-title">Koyu Bordó</h5>
+                            <p class="card-text">Yoğun pigment, transfer dayanıklı</p>
+                            <p class="fw-bold text-primary">₺169,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-4')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Maskara">
+                        <div class="card-body">
+                            <h5 class="card-title">Volume Maskara</h5>
+                            <p class="card-text">Hacim veren, kirpikleri uzatan</p>
+                            <p class="fw-bold text-primary">₺89,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-5')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top product-image" alt="Nemlendirici">
+                        <div class="card-body">
+                            <h5 class="card-title">Hyaluronik Serum</h5>
+                            <p class="card-text">Cildi nemlendirir, genç görünüm</p>
+                            <p class="fw-bold text-primary">₺199,90</p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('urun-detay-6')">İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urun-detay-1" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded" alt="Kırmızı Ruj">
+                </div>
+                <div class="col-md-6">
+                    <h2>Klasik Kırmızı</h2>
+                    <p class="text-primary fw-bold fs-3">₺149,90</p>
+                    <p>Mat formülü ile uzun süre kalıcılık sağlayan klasik kırmızı ruj. Dudaklarınıza mükemmel bir renk ve pürüzsüz bir dokunuş sunar.</p>
+                    <ul>
+                        <li>24 saat kalıcılık</li>
+                        <li>Mat bitiş</li>
+                        <li>Nemlendirici formül</li>
+                        <li>Suya dayanıklı</li>
+                    </ul>
+                    <button class="btn btn-primary btn-lg">Sepete Ekle</button>
+                    <a href="#" class="btn btn-outline-secondary ms-2" onclick="showPage('urunler')">Ürünlere Dön</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urun-detay-2" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1556228578-1cf44c0b6c8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded" alt="Pembe Ruj">
+                </div>
+                <div class="col-md-6">
+                    <h2>Pembe Işıltı</h2>
+                    <p class="text-primary fw-bold fs-3">₺129,90</p>
+                    <p>Parlak finish ve nemlendirici özellikleri ile dudaklarınıza doğal bir ışıltı kazandırır. Günlük kullanım için ideal.</p>
+                    <ul>
+                        <li>Parlak bitiş</li>
+                        <li>Nemlendirici</li>
+                        <li>Doğal görünüm</li>
+                        <li>Hafif formül</li>
+                    </ul>
+                    <button class="btn btn-primary btn-lg">Sepete Ekle</button>
+                    <a href="#" class="btn btn-outline-secondary ms-2" onclick="showPage('urunler')">Ürünlere Dön</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda" class="page-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Hakkımızda</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Biz Kimiz?</h3>
+                    <p>Güzellik Dünyası olarak, 2010 yılından beri Kayseri'de kaliteli kozmetik ürünleri sunmaktayız. Müşterilerimize en iyi hizmeti vermek için çalışıyoruz.</p>
+                    <p>Kayseri'nin ilk yerel kozmetik markası olarak, bölge halkının güzellik ve bakım ihtiyaçlarını karşılamak için yola çıktık.</p>
+                    <h4 class="mt-4">Vizyonumuz</h4>
+                    <p>Herkesin kendini güzel ve özel hissetmesini sağlayacak kaliteli ürünler sunmak.</p>
+                    <h4>Misyonumuz</h4>
+                    <p>Doğal içeriklerle üretilmiş, uygun fiyatlı ve etkili kozmetik ürünleri ile müşterilerimizin beklentilerini aşmak.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Mağazamız">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM SAYFASI -->
+    <section id="iletisim" class="page-section">
+        <div class="container">
+            <h2 class="text-center mb-5">İletişim</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Bize Ulaşın</h4>
+                    <form onsubmit="handleContact(event)">
+                        <div class="mb-3">
+                            <label for="contact-name" class="form-label">Ad Soyad</label>
+                            <input type="text" class="form-control" id="contact-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="contact-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mesajınız</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim Bilgileri</h4>
+                    <p><strong>Adres:</strong> Talas Caddesi No:123, Kocasinan/Kayseri, Türkiye</p>
+                    <p><strong>Telefon:</strong> 0 (352) 123 45 67</p>
+                    <p><strong>E-posta:</strong> info@guzellikdunyasi.com</p>
+                    <p><strong>Çalışma Saatleri:</strong> 09:00 - 18:00</p>
+                    
+                    <div class="mt-4">
+                        <h5>Mağaza Konumumuz</h5>
+                        <p>Kayseri'nin merkezinde, Talas Caddesi üzerinde hizmet vermekteyiz. Geniş ürün yelpazemiz ve deneyimli personelimiz ile sizlere en iyi hizmeti sunmaktan mutluluk duyuyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAŞARILI MESAJLAR -->
+    <section id="basarili-kayit" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="success-message text-center">
+                        <h3>Kayıt Başarılı!</h3>
+                        <p>Üyeliğiniz başarıyla oluşturuldu. Giriş yapabilirsiniz.</p>
+                        <a href="#" class="btn btn-primary" onclick="showPage('giris')">Giriş Yap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="basarili-giris" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="success-message text-center">
+                        <h3>Giriş Başarılı!</h3>
+                        <p>Hoş geldiniz! Alışverişe başlayabilirsiniz.</p>
+                        <a href="#" class="btn btn-primary" onclick="showPage('ana-sayfa')">Alışverişe Devam Et</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="basarili-abonelik" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="success-message text-center">
+                        <h3>Abonelik Başarılı!</h3>
+                        <p>Bültenimize başarıyla abone oldunuz. Teşekkür ederiz!</p>
+                        <a href="#" class="btn btn-primary" onclick="showPage('ana-sayfa')">Ana Sayfaya Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>GÜZELLİK DÜNYASI</h5>
+                    <p>Kaliteli kozmetik ürünleri ile güzelliğinizi ön plana çıkarın. Doğal içerikler, yenilikçi formüller.</p>
+                    <p><strong>Kayseri'nin Kozmetik Markası</strong></p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Sayfalar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white" onclick="showPage('ana-sayfa')">Ana Sayfa</a></li>
+                        <li><a href="#" class="text-white" onclick="showPage('urunler')">Ürünler</a></li>
+                        <li><a href="#" class="text-white" onclick="showPage('hakkimizda')">Hakkımızda</a></li>
+                        <li><a href="#" class="text-white" onclick="showPage('iletisim')">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Müşteri Hizmetleri</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="text-white">İade & Değişim</a></li>
+                        <li><a href="#" class="text-white">Teslimat Bilgileri</a></li>
+                        <li><a href="#" class="text-white">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-white">📞 0 (352) 123 45 67</li>
+                        <li class="text-white">✉️ info@guzellikdunyasi.com</li>
+                        <li class="text-white">📍 Talas Caddesi No:123, Kocasinan/Kayseri, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center">
+                <p>&copy; 2023 Güzellik Dünyası - Kayseri. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Sayfa değiştirme fonksiyonu
+        function showPage(pageId) {
+            // Tüm sayfaları gizle
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active-page');
+            });
+            
+            // İstenen sayfayı göster
+            document.getElementById(pageId).classList.add('active-page');
+            
+            // Navbar linklerini güncelle
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick') === `showPage('${pageId}')`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Sayfa yukarı kaydır
+            window.scrollTo(0, 0);
+        }
+
+        // Form işleme fonksiyonları
+        function handleRegistration(event) {
+            event.preventDefault();
+            showPage('basarili-kayit');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            showPage('basarili-giris');
+        }
+
+        function handleSubscription(event) {
+            event.preventDefault();
+            showPage('basarili-abonelik');
+        }
+
+        function handleContact(event) {
+            event.preventDefault();
+            alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+            showPage('ana-sayfa');
+        }
+    </script>
+</body>
+</html>
